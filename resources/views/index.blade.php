@@ -74,7 +74,7 @@
                             </div>
                             <button
                                 class="relative bg-gray-100 hover:bg-gray-200 rounded-full h-7
-                            transition duration-150 ease-in py-1 px-3">
+                                transition duration-150 ease-in py-1 px-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                                     <path
@@ -98,6 +98,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </x-app-layout>

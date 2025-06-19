@@ -17,30 +17,30 @@
 </head>
 
 <body class="font-sans bg-gray-background text-gray-900 text-sm">
-    <header class="flex items-center justify-between px-8 py-4">
-        <a href="#"><img src="{{ asset('img/logoinwhite.svg') }}" alt="logo"></a>
-        <div class="flex items-center">
+    <header class="flex flex-col md:flex-row items-center justify-between px-8 py-4">
+        <a href="/"><img src="{{ asset('img/logoinwhite.svg') }}" alt="logo"></a>
+        <div class="flex items-center mt-2 md:mt-0">
             @if (Route::has('login'))
                 <nav class="px-6 py-4">
                     @auth
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                        <div class="flex items-center space-x-4">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
 
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </a>
-                        </form>
+                                    {{ __('Log Out') }}
+                                </a>
+                            </form>
+                        </div>
                     @else
-                        <a href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal">
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">
                             Log in
                         </a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">
                                 Register
                             </a>
                         @endif
@@ -53,30 +53,33 @@
         </div>
     </header>
 
-    <main class="container mx-auto max-w-custom flex" style="max-width:1000px">
-        <div class="w-70 mr-5">
-            <div class="border-2 border-blue rounded-xl mt-16"
+    <main class="container mx-auto max-w-custom flex flex-col md:flex-row" style="max-width:1000px">
+        <div class="w-70 mx-auto md:mx-0 md:mr-5">
+            <div class="bg-white md:sticky md:top-8 border-2 border-blue rounded-xl mt-16"
                 style="
-                    border-image-sources:linear-gradient(to bottom, rgba(50,138,241,0.22), rgba(99,123,255,0));
-                    border-image-slice:1;
-                    background-image:linear-gradient(to bottom, #ffffff, #ffffff);
-                    linear-gradient(to bottom, rgba(50,138,241,0.22), rgba(99,123,255,0));
-                    background-origin:border-box;
-                    background-clip:content-box, border-box;
-                ">
+                          border-image-source: linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
+                            border-image-slice: 1;
+                            background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
+                            background-origin: border-box;
+                            background-clip: content-box, border-box;
+                    ">
                 <div class="text-center px-6 py-2 pt-6">
                     <h3 class="font-semibold text-base">Add an Idea</h3>
-                    <p class="text-xs mt-4">Let us know what you would like and we'll take a look
-                        over!</p>
+                    <p class="text-xs mt-4"> @auth
+                            Let us know what you would like and we'll take a look over!
+                        @else
+                            Please login to create an idea.
+                        @endauth
+                    </p>
                 </div>
                 <form action="#" method="POST" class="space-y-4 px-4 py-6">
                     <div class="">
                         <input type="text"
-                            class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2 mb-3"
+                            class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-900 border-none px-4 py-2 mb-3"
                             placeholder="Your Idea">
                         <div class="">
                             <select name="category_add" id="category_add"
-                                class="w-full bg-gray-100 text-sm rounded-xl border px-4 py-2">
+                                class="w-full bg-gray-100 text-sm rounded-xl border-none px-4 py-2">
                                 <option value="Category One">Category One</option>
                                 <option value="Category Two">Category Two</option>
                                 <option value="Category Three">Category Three</option>
@@ -111,7 +114,6 @@
                     </div>
                 </form>
             </div>
-        </div>
         </div>
         <div class="w-175 mr-5">
             <nav class="flex items-center justify-between text-xs">
