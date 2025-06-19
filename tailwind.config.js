@@ -31,7 +31,7 @@ export default {
                 sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
             },
             maxWidth: {
-                custom: "62.5rem",
+                custom: "68.5rem",
             },
 
             boxShadow: {
