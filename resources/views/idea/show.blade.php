@@ -12,25 +12,23 @@
         <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
             <div class="flex-none mx-2 md:mx-4">
                 <a href="#">
-                    <img src="{{ asset('img/avatar.jpg') }}" alt="avatar" class="w-14 h-14 rounded-xl">
+                    <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
                 </a>
             </div>
             <div class="w-full mx-2 md:mx-4">
                 <h4 class="text-xl font-semibold">
-                    <a href="#" class="hover:underline">A random title can go here</a>
+                    <a href="#" class="hover:underline">{{ $idea->title }}</a>
                 </h4>
                 <div class="text-gray-600 mt-3">
-                    Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Amet officia doloribus quibusdam dolorem quod velit repellat obcaecati doloremque, nulla iusto modi
-                    hic. Dolore possimus consequuntur et recusandae laboriosam? Esse, culpa.
+                    {{ $idea->description }}
                 </div>
                 <div class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                     <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
-                        <div class="hidden md:block font-bold text-gray-900">John Doe</div>
+                        <div class="hidden md:block font-bold text-gray-900">{{ $idea->user->name }}</div>
                         <div class="hidden md:block">&bull;</div>
-                        <div>10 hours ago</div>
+                        <div>{{ $idea->created_at->diffForHumans() }}</div>
                         <div>&bull;</div>
-                        <div>Category 1</div>
+                        <div>{{ $idea->category->name }}</div>
                         <div>&bull;</div>
                         <div class="text-gray-900">3 Comments</div>
                     </div>
@@ -206,7 +204,7 @@
             <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
                 <div class="flex-none">
                     <a href="#">
-                        <img src="{{ asset('img/avatar.jpg') }}" alt="avatar" class="w-14 h-14 rounded-xl">
+                        <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
                     </a>
                 </div>
                 <div class="w-full md:mx-4">
@@ -251,7 +249,7 @@
             <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
                 <div class="flex-none">
                     <a href="#">
-                        <img src="{{ asset('img/avatar.jpg') }}" alt="avatar" class="w-14 h-14 rounded-xl">
+                        <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
                     </a>
                 </div>
                 <div class="w-full md:mx-4">
@@ -296,7 +294,7 @@
             <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
                 <div class="flex-none">
                     <a href="#">
-                        <img src="{{ asset('img/avatar.jpg') }}" alt="avatar" class="w-14 h-14 rounded-xl">
+                        <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
                     </a>
                 </div>
                 <div class="w-full md:mx-4">
@@ -344,7 +342,7 @@
             <div class="flex flex-1 px-4 py-6">
                 <div class="flex-none">
                     <a href="#">
-                        <img src="{{ asset('img/avatar.jpg') }}" alt="avatar"
+                        <img src="{{ $idea->user->getAvatar() }}" alt="avatar"
                             class="w-14 h-14 rounded-xl">
                     </a>
                     <div class="text-center uppercase text-blue text-xxs font-bold mt-1">Admin</div>

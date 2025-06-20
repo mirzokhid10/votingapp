@@ -13,7 +13,9 @@
     <link href="https://fonts.bunny.net/css?family=Open+Sans:wght@400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
+    <livewire:styles />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body class="font-sans bg-gray-background text-gray-900 text-sm">
@@ -155,6 +157,7 @@
             repudiandae maxime consequatur odit! Tempore dolorem voluptates dolore, architecto dolores aut enim placeat.
         </div> --}}
     </main>
+    <livewire:scripts />
 </body>
 
 </html>

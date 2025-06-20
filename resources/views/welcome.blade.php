@@ -12,7 +12,7 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
     <!-- Styles / Scripts -->
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+    {{-- @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         <style>
@@ -1516,7 +1516,7 @@
                 initial-value: ""
             }
         </style>
-    @endif
+    @endif --}}
 </head>
 
 <body
@@ -1950,10 +1950,9 @@
             </div>
         </main>
     </div>
-
-    @if (Route::has('login'))
+    {{-- @if (Route::has('login'))
         <div class="h-14.5 hidden lg:block"></div>
-    @endif
+    @endif --}}
 </body>
 
 </html>

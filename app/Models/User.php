@@ -38,11 +38,28 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function ideas()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Idea::class);
+    }
+
+    public function getAvatar()
+    {
+        $firstCharacter = $this->email[0];
+        if (is_numeric($firstCharacter)) {
+            $integerToUse = ord(strtolower($firstCharacter)) - 21;
+        } else {
+            $integerToUse = ord(strtolower($firstCharacter)) - 96;
+        }
+        return 'https://www.gravatar.com/avatar/'
+            . md5($this->email)
+            . '?s=200'
+            . '&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-'
+            . $integerToUse
+            . '.png';
     }
 }
