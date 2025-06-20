@@ -115,8 +115,8 @@
                 </form>
             </div>
         </div>
-        <div class="w-175 mr-5">
-            <nav class="flex items-center justify-between text-xs">
+        <div class="w-full px-2 md:px-0 md:w-175">
+            <nav class="hidden md:flex items-center justify-between text-xs">
                 <ul class="flex uppercase font-semibold space-x-10">
                     <li class=""><a href="" class="border-b-4 pb-3 border-blue">
                             All Ideas For</a>
