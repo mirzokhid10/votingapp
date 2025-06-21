@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function votes()
     {
-        return $this->morphToMany(Idea::class, 'votable');
+        return $this->belongsToMany(User::class, 'votes');
     }
 
     public function getAvatar()

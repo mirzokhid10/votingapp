@@ -50,7 +50,7 @@ class Idea extends Model
 
     public function votes()
     {
-        return $this->morphToMany(User::class, 'votable');
+        return $this->belongsToMany(User::class, 'votes');
     }
 
     public function isVotedByUser(?User $user)
