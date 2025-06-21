@@ -2,7 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\CreateIdea;
+use App\Livewire\CreateIdea;
+use App\Livewire\CreatingIdeas;
 use App\Models\Category;
 use App\Models\Status;
 use App\Models\User;
@@ -50,7 +51,7 @@ class CreateIdeaTest extends TestCase
     public function create_idea_form_validation_works()
     {
         Livewire::actingAs(User::factory()->create())
-            ->test(CreateIdea::class)
+            ->test(CreatingIdeas::class)
             ->set('title', '')
             ->set('category', '')
             ->set('description', '')
@@ -70,7 +71,7 @@ class CreateIdeaTest extends TestCase
         $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
 
         Livewire::actingAs($user)
-            ->test(CreateIdea::class)
+            ->test(CreatingIdeas::class)
             ->set('title', 'My First Idea')
             ->set('category', $categoryOne->id)
             ->set('description', 'This is my first idea')
@@ -98,7 +99,7 @@ class CreateIdeaTest extends TestCase
         $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
 
         Livewire::actingAs($user)
-            ->test(CreateIdea::class)
+            ->test(CreatingIdeas::class)
             ->set('title', 'My First Idea')
             ->set('category', $categoryOne->id)
             ->set('description', 'This is my first idea')
@@ -111,7 +112,7 @@ class CreateIdeaTest extends TestCase
         ]);
 
         Livewire::actingAs($user)
-            ->test(CreateIdea::class)
+            ->test(CreatingIdeas::class)
             ->set('title', 'My First Idea')
             ->set('category', $categoryOne->id)
             ->set('description', 'This is my first idea')
