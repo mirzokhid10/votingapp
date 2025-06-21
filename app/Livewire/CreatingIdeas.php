@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Category;
 use App\Models\Idea;
+use Illuminate\Http\Response;
 use Livewire\Component;
-use Symfony\Component\HttpFoundation\Response;
 
-class CreateIdea extends Component
+class CreatingIdeas extends Component
 {
+
     public $title;
     public $category = 1;
     public $description;
@@ -23,6 +24,7 @@ class CreateIdea extends Component
     {
         if (auth()->check()) {
             $this->validate();
+
             Idea::create([
                 'user_id' => auth()->id(),
                 'category_id' => $this->category,
@@ -30,16 +32,20 @@ class CreateIdea extends Component
                 'title' => $this->title,
                 'description' => $this->description,
             ]);
+
             session()->flash('success_message', 'Idea was added successfully.');
+
             $this->reset();
+
             return redirect()->route('idea.index');
         }
+
         abort(Response::HTTP_FORBIDDEN);
     }
 
     public function render()
     {
-        return view('livewire.create-idea', [
+        return view('livewire.creating-ideas', [
             'categories' => Category::all(),
         ]);
     }

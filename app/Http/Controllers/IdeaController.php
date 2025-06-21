@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Idea;
 use App\Http\Requests\StoreIdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
+use App\Models\Category;
 
 class IdeaController extends Controller
 {
@@ -31,10 +32,9 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreIdeaRequest $request)
-    {
-        //
-    }
+    public function store(StoreIdeaRequest $request) {}
+
+
 
     /**
      * Display the specified resource.

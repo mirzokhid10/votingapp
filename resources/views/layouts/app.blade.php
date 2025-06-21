@@ -76,7 +76,7 @@
                     </p>
                 </div>
                 @auth
-                    <livewire:create-idea />
+                    <livewire:creating-ideas />
                 @else
                     <div class="my-6 text-center">
 
