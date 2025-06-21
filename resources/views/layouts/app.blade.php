@@ -67,54 +67,34 @@
                     ">
                 <div class="text-center px-6 py-2 pt-6">
                     <h3 class="font-semibold text-base">Add an Idea</h3>
-                    <p class="text-xs mt-4"> @auth
+                    <p class="text-xs mt-4">
+                        @auth
                             Let us know what you would like and we'll take a look over!
                         @else
                             Please login to create an idea.
                         @endauth
                     </p>
                 </div>
-                <form action="#" method="POST" class="space-y-4 px-4 py-6">
-                    <div class="">
-                        <input type="text"
-                            class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-900 border-none px-4 py-2 mb-3"
-                            placeholder="Your Idea">
-                        <div class="">
-                            <select name="category_add" id="category_add"
-                                class="w-full bg-gray-100 text-sm rounded-xl border-none px-4 py-2">
-                                <option value="Category One">Category One</option>
-                                <option value="Category Two">Category Two</option>
-                                <option value="Category Three">Category Three</option>
-                                <option value="Category Four">Category Four</option>
-                            </select>
-                        </div>
-                        <div class="">
-                            <textarea name="idea" id="idea" cols="30" rows="4"
-                                class="w-full bg-gray-100 rounded-xl border-none placeholer-gray-900 text-sm px-4 py-2 my-3"
-                                placeholder="Describe your idea"></textarea>
-                        </div>
-                        <div class="flex items-center justify-between space-x-3">
-                            <button type="sumbit"
-                                class="flex items-center justify-center w-1/2 h-11 text-xs bg-gray-200
-                                font-semibold rounded-xl border border-gray-200 hover:border-gray-400
-                                transition duration-150 ease-in px-6 py-3">
-                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                    class="text-gray-900 w-4 transform -rotate-45">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m18.375 12.739-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.372L8.552 18.32m.009-.01-.01.01m5.699-9.941-7.81 7.81a1.5 1.5 0 0 0 2.112 2.13" />
-                                </svg>
+                @auth
+                    <livewire:create-idea />
+                @else
+                    <div class="my-6 text-center">
 
-                                <span class="ml-1"> Attach</span>
-                            </button>
-                            <button type="sumbit"
-                                class="flex items-center justify-center w-1/2 h-11 text-xs bg-blue
+                        <a href="{{ route('login') }}"
+                            class="inline-block justify-center w-1/2 h-11 text-xs bg-blue
                                 font-semibold rounded-xl border border-blue hover:bg-blue-hover
                                 transition duration-150 ease-in px-6 py-3 text-white">
-                                <span class="ml-1"> Submit </span>
-                            </button>
-                        </div>
+                            <span class="ml-1"> login </span>
+                        </a>
+                        <a href="{{ route('register') }}"
+                            class="inline-block justify-center w-1/2 h-11 text-xs bg-gray-200
+                                font-semibold rounded-xl border border-gray-200 hover:border-gray-400
+                                transition duration-150 ease-in px-6 py-3 mt-4">
+
+                            <span class="ml-1"> Sign Up</span>
+                        </a>
                     </div>
-                </form>
+                @endauth
             </div>
         </div>
         <div class="w-full px-2 md:px-0 md:w-175">
@@ -151,11 +131,6 @@
 
             <div class="mt-8">{{ $slot }}</div>
         </div>
-        {{-- <div class="w-24">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus provident quae quos distinctio cum
-            dolorum commodi, officia libero laborum voluptatum nulla perferendis voluptate recusandae, animi soluta
-            repudiandae maxime consequatur odit! Tempore dolorem voluptates dolore, architecto dolores aut enim placeat.
-        </div> --}}
     </main>
     <livewire:scripts />
 </body>
